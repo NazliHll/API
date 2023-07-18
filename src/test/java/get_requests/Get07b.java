@@ -1,7 +1,15 @@
 package get_requests;
 
 import base_urls.JsonPlaceHolderBaseUrl;
+import io.restassured.response.Response;
 import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
+import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
 
 public class Get07b extends JsonPlaceHolderBaseUrl {
      /*
@@ -26,6 +34,27 @@ public class Get07b extends JsonPlaceHolderBaseUrl {
     @Test
     public void test07(){
         spec.pathParams("first","todos","second",2);
+        Map<String, Object> expectedData=new HashMap<>();
+        expectedData.put("userId",1);
+        expectedData.put("id",2);
+        expectedData.put("title","quis ut nam facilis et officia qui");
+        expectedData.put("completed",false);
+        System.out.println(expectedData);
+
+       Response response= given().spec(spec).when().get("/{first}/{second}");
+       response.prettyPrint();
+
+       Map<String,Object>actualData=response.as(HashMap.class);
+        System.out.println("actualData = " + actualData);
+        assertEquals(expectedData.get("userId"),actualData.get("userId"));
+        assertEquals(expectedData.get("id"),actualData.get("id"));
+        assertEquals(expectedData.get("title"),actualData.get("title"));
+        assertEquals(expectedData.get("completed"),actualData.get("completed"));
+        assertEquals("1.1 vegur",response.header("Via"));
+        assertEquals("cloudflare",response.header("Server"));
+        assertEquals(200,response.statusCode());
+
+
 
     }
 
