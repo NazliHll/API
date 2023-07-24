@@ -1,5 +1,7 @@
 package get_requests;
 
+import org.junit.Test;
+
 public class Get08 {
      /*
       Given
@@ -8,16 +10,21 @@ public class Get08 {
           I send GET Request to the url
       Then
           Response body should be like that;
-       {
-    "firstname": "Sally",
-    "lastname": "Brown",
+
+    "firstname": "John",
+    "lastname": "Smith",
     "totalprice": 111,
     "depositpaid": true,
     "bookingdates": {
-        "checkin": "2013-02-23",
-        "checkout": "2014-10-23"
+        "checkin": "2018-01-01",
+        "checkout": "2019-01-01"
     },
     "additionalneeds": "Breakfast"
 }
    */
+    @Test
+    public void test08(){
+
+
+    }
 }
