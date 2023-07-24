@@ -43,7 +43,7 @@ public class Get08 extends RestfulBaseUrl {
         expectedData.put("totalprice",111);
         expectedData.put("bookingdates",bookingDatesMap);
         expectedData.put("depositpaid",true);
-        expectedData.put("additionalneeds","Breakfast");
+        expectedData.put("additionalneeds","Dinner");
         System.out.println(expectedData);
 
         Response response=given().spec(spec).when().get("/{first}/{second}");
@@ -54,9 +54,9 @@ public class Get08 extends RestfulBaseUrl {
         assertEquals(expectedData.get("lastname"),actualData.get("lastname"));
         assertEquals(expectedData.get("totalprice"),actualData.get("totalprice"));
         assertEquals(expectedData.get("depositpaid"),actualData.get("depositpaid"));
-        assertEquals(bookingDatesMap.get("checkin"),((Map)(actualData.get("bookingdates"))).get("checkin");
-        assertEquals(bookingDatesMap.get("checkout"),((Map)(actualData.get("bookingdates"))).get("checkout");
-        assertEquals(expectedData.get("additionalneeds"),actualData.get("Breakfast"));
+        assertEquals(bookingDatesMap.get("checkin"),((Map)(actualData.get("bookingdates"))).get("checkin"));
+        assertEquals(bookingDatesMap.get("checkout"),((Map)(actualData.get("bookingdates"))).get("checkout"));
+        assertEquals(expectedData.get("additionalneeds"),actualData.get("additionalneeds"));
 
     }
 }
