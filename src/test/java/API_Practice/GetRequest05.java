@@ -9,7 +9,7 @@ public class GetRequest05 {
     @Test
     public void test05(){
         String url="https://www.gmibank.com/api/tp-customers";
-        String token="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiYXRjaDgxIiwiYXV0aCI6IlJPTEVfQURNSU4iLCJleHAiOjE2ODkzNzEzNjF9.HMSRfnM7XDebs7_g77wO4RgZgw51MeHejMx64NWFr5SWDjwnQ73Qi8GHW-n-gV9ha3gECMXJEgmNGHAcELMWQA";
+        String token="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiYXRjaDgxIiwiYXV0aCI6IlJPTEVfQURNSU4iLCJleHAiOjE2OTMzMzY4MTZ9.FwfOpzvgiW2rm9e2YV5ezTYhpJ7UPsxDNVxQk-IcIEk0NcLo7xrY9ZeIlycW71NU2VbTi7mAWc-T-jlyoInBEA";
 
         Response response =given().headers("Authorization","Bearer "+token).when().get(url);
         response.prettyPrint();
