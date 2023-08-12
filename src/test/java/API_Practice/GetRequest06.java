@@ -13,24 +13,24 @@ import static org.junit.Assert.assertEquals;
 
 public class GetRequest06 extends Authentication {
     @Test
-    public void test06(){
-        String url="https://www.gmibank.com/api/tp-customers/126294";
+    public void test06() {
+        String url = "https://www.gmibank.com/api/tp-customers/126294";
 
-        Response response=given().headers("Authorization","Bearer "+generateToken()).when().get(url);
+        Response response = given().headers("Authorization", "Bearer " + generateToken()).when().get(url);
         response.prettyPrint();
 
         //Matcher Class ile müşteri bilgilerini doğrulayalım
         response.then().assertThat().body("firstName", equalTo("Deneme"),
-                "lastName",equalTo("Last"),
-                "email",equalTo("ma34@gmail.com"),
-                "mobilePhoneNumber",equalTo("123-123-3434"));
+                "lastName", equalTo("Last"),
+                "email", equalTo("ma34@gmail.com"),
+                "mobilePhoneNumber", equalTo("123-123-3434"));
 
         //JsonPath ile müşteri bilgilerini doğrulama
-        JsonPath json=response.jsonPath();
-        assertEquals("Deneme",json.getString("firstName"));
-        assertEquals("Last",json.getString("lastName"));
-        assertEquals("ma34@gmail.com",json.getString("email"));
-        assertEquals("123-123-3434",json.getString("mobilePhoneNumber"));
+        JsonPath json = response.jsonPath();
+        assertEquals("Deneme", json.getString("firstName"));
+        assertEquals("Last", json.getString("lastName"));
+        assertEquals("ma34@gmail.com", json.getString("email"));
+        assertEquals("123-123-3434", json.getString("mobilePhoneNumber"));
 
     }
 }
