@@ -1,6 +1,7 @@
 package post_requests;
 
 import base_urls.RestfulBaseUrl;
+import org.junit.Test;
 
 public class Post02 extends RestfulBaseUrl {
     /*
@@ -35,5 +36,8 @@ public class Post02 extends RestfulBaseUrl {
     }
 }
     */
+    @Test
+    public
+
 
 }
