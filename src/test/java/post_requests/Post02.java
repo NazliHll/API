@@ -37,7 +37,10 @@ public class Post02 extends RestfulBaseUrl {
 }
     */
     @Test
-    public
+    public void post02(){
+        spec.pathParam("First","booking");
+
+    }
 
 
 }
