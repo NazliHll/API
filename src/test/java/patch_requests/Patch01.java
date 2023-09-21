@@ -1,10 +1,14 @@
 package patch_requests;
 
 import base_urls.JsonPlaceHolderBaseUrl;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.junit.Test;
 import test_data.JsonPlaceHolderTestData;
 
 import java.util.Map;
+
+import static io.restassured.RestAssured.given;
 
 public class Patch01 extends JsonPlaceHolderBaseUrl {
      /*
@@ -31,5 +35,8 @@ public class Patch01 extends JsonPlaceHolderBaseUrl {
         JsonPlaceHolderTestData obj=new JsonPlaceHolderTestData();
         Map<String,Object> expectedData=obj.expectedDataMethod(null,"Wash the dishes",null);
         System.out.println(expectedData);
+        Response response=given().spec(spec).contentType(ContentType.JSON).body(expectedData).when().patch("/{first}/{second}");
+        response.prettyPrint();
+
     }
 }
