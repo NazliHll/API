@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
 
 public class Patch01 extends JsonPlaceHolderBaseUrl {
      /*
@@ -41,6 +42,10 @@ public class Patch01 extends JsonPlaceHolderBaseUrl {
 
         Map<String,Object> actualData=response.as(HashMap.class);
         System.out.println(actualData);
+
+        assertEquals(200,response.statusCode());
+        assertEquals(expectedData.get("title"),actualData.get("title"));
+
 
     }
 }
