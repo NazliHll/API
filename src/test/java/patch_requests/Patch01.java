@@ -6,6 +6,7 @@ import io.restassured.response.Response;
 import org.junit.Test;
 import test_data.JsonPlaceHolderTestData;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
@@ -37,6 +38,9 @@ public class Patch01 extends JsonPlaceHolderBaseUrl {
         System.out.println(expectedData);
         Response response=given().spec(spec).contentType(ContentType.JSON).body(expectedData).when().patch("/{first}/{second}");
         response.prettyPrint();
+
+        Map<String,Object> actualData=response.as(HashMap.class);
+        System.out.println(actualData);
 
     }
 }
