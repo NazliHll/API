@@ -1,9 +1,12 @@
 package get_requests;
 
 import base_urls.RestfulBaseUrl;
+import io.restassured.response.Response;
 import org.junit.Test;
 import pojos.BookingDatesPojo;
 import pojos.BookingPojo;
+
+import static io.restassured.RestAssured.given;
 
 public class Get12Pojo extends RestfulBaseUrl {
 
@@ -37,6 +40,10 @@ public class Get12Pojo extends RestfulBaseUrl {
         System.out.println(bookingDatesPojo.toString());
         BookingPojo bookingPojo=new BookingPojo("Jane","Doe",111,true,bookingDatesPojo,"Extra pillows please");
         System.out.println(bookingPojo);
+        Response response=given().spec(spec).when().get("/{first}/{second}");
+        response.prettyPrint();
+
+        BookingPojo actualData=response.as(BookingPojo.class);
 
     }
 }
